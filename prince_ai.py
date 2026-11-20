@@ -49,203 +49,72 @@ Normas:
 """
 
 HTML = """
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f6f7fb">
 <title>Prince AI</title>
-
 <style>
-
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #050505;
-    color: white;
-}
-
-.container {
-    max-width: 900px;
-    margin: auto;
-    padding: 20px;
-}
-
-.logo {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.logo img {
-    width: 150px;
-    border-radius: 20px;
-}
-
-.logo h1 {
-    font-family: Georgia, serif;
-    letter-spacing: 8px;
-    font-size: 34px;
-    margin-bottom: 5px;
-}
-
-.logo p {
-    color: #d4af67;
-    letter-spacing: 3px;
-    font-size: 12px;
-}
-
-.chat {
-    background: #101010;
-    border: 1px solid #242424;
-    border-radius: 20px;
-    padding: 20px;
-    min-height: 450px;
-}
-
-.mensaje {
-    margin-bottom: 20px;
-}
-
-.usuario {
-    text-align: right;
-}
-
-.usuario span {
-    display: inline-block;
-    background: #d4af67;
-    color: black;
-    padding: 12px 16px;
-    border-radius: 16px;
-    max-width: 75%;
-}
-
-.ia span {
-    display: inline-block;
-    background: #1b1b1b;
-    padding: 12px 16px;
-    border-radius: 16px;
-    max-width: 75%;
-    white-space: pre-wrap;
-}
-
-form {
-    margin-top: 15px;
-    display: flex;
-    gap: 10px;
-}
-
-textarea {
-    flex: 1;
-    padding: 15px;
-    background: #111;
-    color: white;
-    border: 1px solid #333;
-    border-radius: 15px;
-    font-size: 16px;
-    resize: none;
-}
-
-button {
-    background: #d4af67;
-    border: none;
-    border-radius: 15px;
-    padding: 0 20px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-button:hover {
-    background: #f0cf87;
-}
-
-.nuevo {
-    margin-top: 10px;
-    text-align: right;
-}
-
-.nuevo a {
-    color: #d4af67;
-    text-decoration: none;
-}
-
+:root{color-scheme:light;--ink:#171b2b;--muted:#525a71;--line:#dfe3ee;--accent:#353ca7;--surface:#fff;--canvas:#f6f7fb;font:16px/1.6 system-ui,sans-serif}
+*{box-sizing:border-box}body{margin:0;background:var(--canvas);color:var(--ink)}button,textarea{font:inherit}a{color:inherit}header{border-bottom:1px solid var(--line);background:var(--surface)}.bar{max-width:1100px;margin:auto;padding:14px 24px;display:flex;justify-content:space-between;align-items:center;gap:16px}.brand{display:inline-flex;gap:10px;align-items:center;font-weight:800;text-decoration:none;letter-spacing:-.03em}.mark{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:11px;background:#232858;color:#d7ddff;font-size:21px;font-weight:850;line-height:1;letter-spacing:-.06em}.mark.hero-mark{width:63px;height:63px;border-radius:20px;font-size:40px;box-shadow:0 12px 26px #23285824}.reset{font-size:.88rem;text-decoration:none;padding:6px 10px;border:1px solid var(--line);border-radius:8px}.reset:hover,.prompt:hover{border-color:#8d92c3;background:#f0f1ff}main{width:min(100% - 32px,780px);margin:auto}.empty{padding:clamp(32px,10vh,105px) 0 28px;text-align:center}.empty h1{font-size:clamp(2rem,6vw,3.65rem);line-height:1.12;letter-spacing:-.055em;margin:.45em 0 .2em}.empty p{color:var(--muted);margin:0}.prompts{display:flex;flex-wrap:wrap;justify-content:center;gap:9px;margin:24px 0 0}.prompt{color:var(--ink);border:1px solid var(--line);background:white;border-radius:999px;padding:8px 13px;cursor:pointer;font-size:.88rem}.messages{display:grid;gap:18px;padding:29px 0 25px}.message{max-width:100%;min-width:0}.message.user{justify-self:end;max-width:85%;border-radius:15px 15px 3px 15px;background:#e8ebff;padding:10px 15px}.message.assistant{border:1px solid var(--line);background:white;border-radius:15px;padding:13px 16px}.message b{display:block;color:var(--muted);font-size:.78rem;margin-bottom:3px}.message p{white-space:pre-wrap;overflow-wrap:anywhere;margin:0}.compose-panel{position:sticky;bottom:0;background:var(--canvas);padding:10px 0 max(10px,env(safe-area-inset-bottom))}.composer{border:1px solid var(--line);box-shadow:0 6px 20px #2328580d;background:white;border-radius:16px;padding:10px;display:flex;align-items:end;gap:10px}textarea{border:0;min-width:0;flex:1;resize:vertical;min-height:48px;max-height:180px;background:white;color:var(--ink);padding:8px}.send{border:0;border-radius:10px;background:var(--accent);color:white;padding:10px 14px;cursor:pointer;font-weight:700}.send:disabled{opacity:.65}.hint{font-size:.78rem;color:var(--muted);text-align:center;margin:7px 0 0}a:focus-visible,button:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:3px}.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}@media(max-width:480px){.bar{padding-inline:16px}.empty{padding-top:40px}.prompts{gap:7px}.prompt{padding:6px 10px}.composer{gap:5px}.send{padding-inline:10px}}
 </style>
-
 </head>
-
 <body>
-
-<div class="container">
-
-<div class="logo">
-
-<img src="/static/prince_logo.png">
-
-<h1>PRINCE AI</h1>
-
-<p>INTELLIGENCE FOR A BRIGHTER TOMORROW</p>
-
-</div>
-
-<div class="chat">
-
+<header><div class="bar"><a class="brand" href="/"><span class="mark" aria-hidden="true">P</span>Prince AI</a>{% if historial %}<a class="reset" href="/nuevo">Nueva conversación</a>{% endif %}</div></header>
+<main>
 {% if not historial %}
-
-<div style="text-align:center; padding-top:100px; color:#aaa">
-
-<h2>¿En qué puedo ayudarte?</h2>
-
-<p>
-Pregunta sobre ciencia, tecnología, programación, historia,
-fútbol, negocios, estudios o cualquier otro tema.
-</p>
-
+<section class="empty">
+<span class="mark hero-mark" aria-hidden="true">P</span>
+<h1>¿En qué puedo ayudarte?</h1>
+<p>Pregunta, aprende o empieza a darle forma a una idea.</p>
+<div class="prompts" aria-label="Ideas para empezar">
+<button type="button" class="prompt" data-prompt="Hola, Prince. ¿Para qué fuiste creado y en qué puedes ayudarme?">Conoce a Prince</button>
+<button type="button" class="prompt" data-prompt="Ayúdame a crear una ruta de aprendizaje. Primero pregúntame qué quiero aprender, mi nivel y cuánto tiempo tengo.">Crea una ruta</button>
+<button type="button" class="prompt" data-prompt="Ayúdame a explorar una idea. Pregúntame qué tengo en mente y proponme opciones concretas.">Explora una idea</button>
 </div>
-
-{% endif %}
-
-{% for mensaje in historial %}
-
-{% if mensaje["role"] == "user" %}
-
-<div class="mensaje usuario">
-<span>{{ mensaje["content"] }}</span>
-</div>
-
+</section>
 {% else %}
-
-<div class="mensaje ia">
-<span>{{ mensaje["content"] }}</span>
-</div>
-
-{% endif %}
-
+<section class="messages" aria-label="Conversación">
+{% for mensaje in historial %}
+<article class="message {{ 'user' if mensaje['role'] == 'user' else 'assistant' }}">
+<b>{{ 'Tú' if mensaje['role'] == 'user' else 'Prince AI' }}</b><p>{{ mensaje['content'] }}</p>
+</article>
 {% endfor %}
-
-</div>
-
-<form method="POST">
-
-<textarea
-name="mensaje"
-rows="3"
-placeholder="Escribe un mensaje..."
-required
-></textarea>
-
-<button type="submit">
-Enviar
-</button>
-
+</section>
+{% endif %}
+<div class="compose-panel">
+<form method="post" class="composer" id="composer">
+<label class="sr-only" for="mensaje">Mensaje para Prince</label>
+<textarea id="mensaje" name="mensaje" rows="2" placeholder="Escribe a Prince…" required></textarea>
+<button class="send" type="submit">Enviar</button>
 </form>
-
-<div class="nuevo">
-<a href="/nuevo">Nueva conversación</a>
+<p class="hint" id="status" role="status">Prince puede cometer errores. Comprueba la información importante.</p>
 </div>
-
-</div>
-
+</main>
+<script>
+const composer=document.querySelector('#composer');
+const message=document.querySelector('#mensaje');
+for(const btn of document.querySelectorAll('.prompt')){
+  btn.addEventListener('click',()=>{message.value=btn.dataset.prompt;message.focus();});
+}
+composer.addEventListener('submit',()=>{
+  const button=composer.querySelector('.send');
+  button.disabled=true;
+  button.textContent='Enviando…';
+  document.querySelector('#status').textContent='Prince está preparando tu respuesta…';
+});
+addEventListener('pageshow',event=>{
+  if(event.persisted){
+    const button=composer.querySelector('.send');
+    button.disabled=false;
+    button.textContent='Enviar';
+    document.querySelector('#status').textContent='Prince puede cometer errores. Comprueba la información importante.';
+  }
+});
+if(document.querySelector('.messages'))window.scrollTo(0,document.body.scrollHeight);
+</script>
 </body>
 </html>
 """
